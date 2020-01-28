@@ -21,14 +21,14 @@ router.post('/add', async (req, res) => {
                 passcode: en.encrypt(passcode)
             }).save().catch(() => {});
             console.log(`[ADDED] | Client ID: ${userID}`);
-            return res.json({status: true, message: `Endpoint created for ${userID}\nPoint the DBL(top.gg) website to: ${config.baseURL}/dbl/${userID} and your passcode to the one you just set!`});
+            return res.json({status: true, link: `${config.baseURL.replace("https", "http")}/dbl/${userID}`, message: `Endpoint created for ${userID}\nPoint the DBL(top.gg) website to: ${config.baseURL}/dbl/${userID} and your passcode to the one you just set!`});
         };
         return error(res, `You already have a voting database!`);
     }catch(err){
         return error(res, err.message);
     }
 });
-router.get("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
     try{
         let {id} = req.params, key = req.get("authorization") || req.query.authorization;
         if(!key) return error(res, "You didn't provide the 'authorization' header!");
@@ -60,7 +60,6 @@ router.get("/:id", async (req, res) => {
         if(!re) return error(res, `The webhook listed with the account is no longer valid or Discord is having issues!`);
         console.log(`[POST, WEBHOOK] | Client ID: ${id}`)
         res.json({status: true, message: `Sent to webhook`});
-        return console.log(db, req.body);
     }catch(err){
         console.log(err.stack)
         return error(res, err.message);
