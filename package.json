@@ -1,0 +1,17 @@
+{
+  "name": "dbl-webhook-voting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aes256": "^1.0.4",
+    "dotenv": "^8.2.0",
+    "elara-webserver": "^1.0.1",
+    "superagent": "^5.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SUPERCHIEFYT (Elara-Discord-Bots)",
+  "license": "ISC"
+}
