@@ -52,7 +52,7 @@ router.post("/:id", async (req, res) => {
                     },  
                     footer: {
                         text: `Discord Bot List`,
-                        icon_url: `https://superchiefyt.tk/d/m/DBL.gif`
+                        icon_url: `https://superchiefyt.xyz/d/m/DBL.gif`
                     }
                 }
             ]
